@@ -1,0 +1,197 @@
+const prompt = require('prompt');
+
+prompt.start();
+
+prompt.get(['username', 'email'], function (err, result) {
+    if (err) { return onErr(err); }
+    console.log('Command-line input received:');
+    console.log('  Username: ' + result.username);
+    console.log('  Email: ' + result.email);
+});
+
+function onErr(err) {
+    console.log(err);
+    return 1;
+}
+
+// ----------------------------------------------------------------------
+
+
+Multiplication Table:
+
+<input id="num" type="number" placeholder="1"
+      oninput="tablegen(this.value)"
+      onchange="tablegen(this.value)">
+
+
+/* When the input field receives input, convert the value from fahrenheit to celsius */
+    function tablegen(valNum) {
+      valNum = parseFloat(valNum);
+      cleartable();
+      for(i = 1; i <= 10; i++){
+        var para = document.createElement("p");
+        var node = document.createTextNode(valNum + ' X ' + i + ' = ' + (valNum * i));
+        para.appendChild(node);
+        para.setAttribute("id", toString(i))
+
+        var element = document.getElementById("table");
+        element.appendChild(para);
+      }
+    }
+
+    function cleartable(){
+        var element = document.getElementById("table");
+        while(element.firstChild){
+          element.removeChild(element.lastChild)
+        }
+    }
+
+# -------------------------------------------------------------------------
+
+TIMER:
+
+<style>
+                
+                #timer{
+                    font-size: 100px;
+                    font-weight: 700;
+                    color: red;
+                    text-align: center;
+                    width:25%;
+                }
+                
+                #timerdiv{
+                    padding: 50px;
+                    background-color: lightgreen;
+                    border-radius: 10px;
+                    width:25%;
+                }
+            </style>
+
+	function startTimer(){
+                var today = new Date();
+                var hours  = today.getHours();
+                var minutes = today.getMinutes();
+                var seconds = today.getSeconds();
+                document.getElementById('timer').innerHTML = twodigit(hours) + ":" + twodigit(minutes) + ":" + twodigit(seconds);
+                setTimeout(function(){ startTimer() }, 500);
+            }
+
+            function twodigit(n){
+                if(n < 10) {
+                    return "0" + n
+                }
+                return n;
+            }
+# ----------------------------------------------------------
+
+LAB: Calculator
+
+var opa = document.getElementById("ina")
+      var opb = document.getElementById("inb")
+      var res = document.getElementById("result")
+
+      document.getElementById("submit").onclick = function(){
+        /*alert(Number(opa.value) + Number(opb.value))*/
+        var element = document.getElementsByName("op")
+        var op;
+        var value;
+
+        for(i = 0; i < element.length; i++){
+            if(element[i].checked){
+              op = element[i].value
+            }
+         }
+
+         //alert(op)
+
+         switch(op){
+           case "add": {value = Number(opa.value) + Number(opb.value); break;}
+           case "sub": {value = Number(opa.value) - Number(opb.value); break;}
+           case "mul": {value = Number(opa.value) * Number(opb.value); break;}
+           case "div": {value = Number(opa.value) / Number(opb.value); break;}
+         }
+
+         res.innerHTML = value
+      }
+
+# -----------------------------------------------------
+
+LAB: Prime
+
+// Function to check prime number
+		function p() {
+
+			var n, i, flag = true;
+
+			// Getting the value form text
+			// field using DOM
+			n = document.myform.n.value;
+			n = parseInt(n)
+			for(i = 2; i <= n - 1; i++)
+				if (n % i == 0) {
+					flag = false;
+					break;
+				}
+
+			// Check and display alert message
+			if (flag == true)
+				alert(n + " is prime");
+			else
+				alert(n + " is not prime");
+		}
+
+# -------------------------------------------------------------
+
+LAB: Temperature Converter
+
+/* When the input field receives input, convert the value from fahrenheit to celsius */
+    function temperatureConverter(valNum) {
+      valNum = parseFloat(valNum);
+      document.getElementById("outputCelsius").innerHTML = (valNum-32) / 1.8;
+    }
+
+
+# ---------------------------------------------------------------
+
+JQMULTTABLE
+
+var tablegen;
+      $(document).ready(function(){
+        tablegen = function (n){
+            // Inputs
+            // Grabbing the value from the input which has an id = num
+            // var n = $("num").val;
+
+            // Process
+
+            // Clear the content of <div> having the id = table
+            $("#table").empty();
+
+            // Repeat using a for loop
+            for(i = 1; i <= 10; i++){
+               // Insert a child node into div with the multplication table element
+               var item = $("<h1></h1>").text(n + ' X ' + i + ' = ' + n * i)
+               $("#table").append(item);
+            }
+          }  
+      });  
+      
+        
+
+
+> var x = L.filter(e => e == 'blue')
+undefined
+> x
+[ 'blue' ]
+> var x = L.find(e => e == 'blue')
+undefined
+> x
+'blue'
+> var x = L.findIndex(e => e == 'blue')
+undefined
+> xL.filte
+2
+> L.includes('blue')
+true
+> L.indexOf('blue')
