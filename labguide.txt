@@ -1,0 +1,97 @@
+$(document).ready(function(){
+
+        $("#submit").click(function(){
+
+          var opa = parseFloat($("#ina").val());
+          var opb = parseFloat($("#inb").val());
+          var op = $('input[name="op"]:checked').val();
+          console.log(opa, opb, op);
+          var result;
+          switch(op){
+                    case "add" : { result = opa + opb; break; }
+                    case "sub" : { result = opa - opb; break; }
+                    case "mul" : { result = opa * opb; break; }
+                    case "div" : { result = opa / opb; break; }
+          }
+          console.log(result);
+          $("#result").text(result);
+
+        });
+
+      });
+      
+----------------------------------------------------------------------------------
+
+var tablegen;
+
+      $(document).ready(function(){
+        tablegen = function(x){
+          $("#table").empty();
+          for(i = 1; i <= 10; i++){
+            var child = $("<h2></h2>").text(x + ' X ' + i + ' = ' + x * i);
+            $("#table").append(child);
+          }
+
+        }
+
+      })
+-----------------------------------------------------------------------------------
+
+function startTimer(){
+                var today = new Date();
+                var hours  = today.getHours();
+                var minutes = today.getMinutes();
+                var seconds = today.getSeconds();
+                document.getElementById('timer').innerHTML = twodigit(hours) + ":" + twodigit(minutes) + ":" + twodigit(seconds);
+                setTimeout(function(){ startTimer() }, 500);
+            }
+
+            function twodigit(n){
+                if(n < 10) {
+                    return "0" + n
+                }
+                return n;
+            }
+
+
+-----------------------------------------------------------------------------------
+$(document).ready(function(){
+        $('#submit').click(function(){
+          var opa = parseInt($("#ina").val());
+          var opb = parseInt($("#inb").val());
+          console.log(opa, opb);
+          var op = $('input[name="op"]:checked').val();
+          console.log(op);
+          var result;
+          switch(op){
+            case "add" : { result = opa + opb; break; }
+            case "sub" : { result = opa - opb; break; }
+            case "mul" : { result = opa * opb; break; }
+            case "div" : { result = opa / opb; break; }
+          }
+          $("#result").text(result);
+        })
+      })
+
+---------------------------------------------------------------------- multtable
+
+var tablegen = function(val){
+        if(val != ''){
+          var parent = document.getElementById("table");
+          cleartable();
+          for(i = 1; i<= 10; i++){
+            var child = document.createElement("h3");
+            var text  = document.createTextNode(val + ' X ' + i + ' = ' + val*i);
+            child.appendChild(text);
+            parent.appendChild(child);
+          }
+        }
+      }
+
+      var cleartable = function(){
+        var parent = document.getElementById("table");
+        while(parent.firstChild){
+          parent.removeChild(parent.lastChild);
+        }
+      }
+      
