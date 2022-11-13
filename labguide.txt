@@ -1,4 +1,4 @@
-
+# Code snippets for JavaScripts labs
 
 $(document).ready(function(){
 
