@@ -1,3 +1,5 @@
+# Code snippets for the javascript labs
+
 $(document).ready(function(){
 
         $("#submit").click(function(){
