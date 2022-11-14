@@ -1,4 +1,5 @@
 # Code snippets for JavaScripts labs
+# New change made in this line
 
 $(document).ready(function(){
 
